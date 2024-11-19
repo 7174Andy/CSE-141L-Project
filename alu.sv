@@ -38,6 +38,8 @@ always_comb begin
 	  rslt = inA & inB;
 	4'b0111: // add immediate
     {sc_o,rslt} = inA + inB + sc_i;
+  4'b1111: // no operation
+    rslt = inA;
   endcase
 end
    
