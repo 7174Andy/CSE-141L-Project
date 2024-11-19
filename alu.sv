@@ -26,18 +26,18 @@ always_comb begin
 		rslt[0]   = sc_i;
 		sc_o      = ina[7];
       end*/
-    3'b010: // right shift (alternative syntax -- works like left shift
+    4'b0010: // right shift (alternative syntax -- works like left shift
 	  {rslt,sc_o} = {sc_i,inA};
-    3'b011: // bitwise XOR
+    4'b0011: // move A to B
+    rslt = inA;
+    4'b0100: // bitwise OR
+    rslt = inA | inB;
+    4'b0101: // bitwise XOR
 	  rslt = inA ^ inB;
-	3'b100: // bitwise AND (mask)
+	4'b0110: // bitwise AND (mask)
 	  rslt = inA & inB;
-	3'b101: // left rotate
-	  rslt = {inA[6:0],inA[7]};
-	3'b110: // subtract
-	  {sc_o,rslt} = inA - inB + sc_i;
-	3'b111: // pass A
-	  rslt = inA;
+	4'b0111: // add immediate
+    {sc_o,rslt} = inA + inB + sc_i;
   endcase
 end
    
