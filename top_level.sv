@@ -14,6 +14,7 @@ module top_level(
   logic sc_in,   				  // shift/carry out from/to ALU
    		pariQ,              	  // registered parity flag from ALU
 		zeroQ;                    // registered zero flag from ALU 
+    equal;                      // equality flag from ALU
   wire  relj;                     // from control to PC; relative jump enable
   wire  pari,
         zero,
@@ -85,6 +86,7 @@ module top_level(
   always_ff @(posedge clk) begin
     pariQ <= pari;
 	zeroQ <= zero;
+  equal <= zero;
     if(sc_clr)
 	  sc_in <= 'b0;
     else if(sc_en)

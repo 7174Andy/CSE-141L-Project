@@ -8,11 +8,13 @@ module alu(
   output logic sc_o,     // shift_carry out
                pari,     // reduction XOR (output)
 			   zero      // NOR (output)
+         equal     // equality (output)
 );
 
 always_comb begin 
   rslt = 'b0;            
-  sc_o = 'b0;    
+  sc_o = 'b0;
+  equal = 'b0;    
   zero = !rslt;
   pari = ^rslt;
   // ALU operations
@@ -34,10 +36,18 @@ always_comb begin
     rslt = inA | inB;
     4'b0101: // bitwise XOR
 	  rslt = inA ^ inB;
-	4'b0110: // bitwise AND (mask)
+	4'b0110: // bitwise AND
 	  rslt = inA & inB;
 	4'b0111: // add immediate
     {sc_o,rslt} = inA + inB + sc_i;
+  4'b1010: // move immediate
+    rslt = inA;
+  4'b1000: // bne
+    equal = inA == inB;
+  4'b1001: // beq
+    equal = inA == inB;
+  4'b1101: // cmp
+    equal = inA == inB;
   4'b1111: // no operation
     rslt = inA;
   endcase
