@@ -12,7 +12,7 @@ module alu(
 );
 
 always_comb begin 
-  rslt = 'b0;            
+  rslt = 'b0;
   sc_o = 'b0;
   equal = 'b0;    
   zero = !rslt;

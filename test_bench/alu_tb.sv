@@ -1,0 +1,129 @@
+module alu_tb;
+
+logic[3:0] alu_cmd;
+logic[7:0] inA;
+logic[7:0] inB;
+logic[7:0] rslt;
+logic sc_i;
+
+logic sc_o;
+logic pari;
+logic zero;
+logic equal;
+
+logic clk;
+
+// Initialize the ALU
+alu alu1 (
+  alu_cmd(alu_cmd),    // ALU instructions
+  inA(inA), 
+  inB(inB),	 // 8-bit wide data path
+  sc_i(sc_i),       // shift_carry in
+  rslt(rslt),
+  sc_o(sc_o),     // shift_carry out
+  pari(pari),     // reduction XOR (output)
+  zero(zero),      // NOR (output)
+  equal(equal)     // equality (output)
+);
+
+// Clock generator
+always begin
+    #5 clk = ~clk;
+end
+
+initial begin
+    clk = 0;
+    
+    // Test Case: Add (alu_cmd = 4'b0000)
+    # 10
+    alu_cmd = 4'b0000;
+    inA = 8'b00000001; // 1
+    inB = 8'b00000010; // 2
+    sc_i = 0;
+    $display("Add: R1=%d, R2=%d, Rslt=%d", inA, inB, rslt);
+
+    // Test Case: Shift Left (alu_cmd = 4'b0001)
+    #10
+    alu_cmd = 4'b0001;
+    inA = 8'b00000010; // 2
+    inB = 8'b00000001; // shift by 1
+    $display("Shift Left: R1=%d, R2=%d, Rslt=%d", inA, inB, rslt);
+
+    // Test Case: Shift Right (alu_cmd = 4'b0010)
+    #10 
+    alu_cmd = 4'b0010;
+    inA = 8'b00000100; // 4
+    inB = 8'b00000001; // shift by 1
+    $display("Shift Right: R1=%d, R2=%d, Rslt=%d", inA, inB, rslt);
+
+    // Test Case: Move A to B (alu_cmd = 4'b0011)
+    #10
+    alu_cmd = 4'b0011;
+    inA = 8'b00001100; // 12
+    inB = 8'b00000000; // Destination doesn't matter
+    $display("Move A to B: R1=%d, R2=%d, Rslt=%d", inA, inB, rslt);
+
+    // Test Case: Bitwise OR (alu_cmd = 4'b0100)
+    #10
+    alu_cmd = 4'b0100;
+    inA = 8'b00001100; // 12
+    inB = 8'b00000010; // 2
+    $display("Bitwise OR: R1=%d, R2=%d, Rslt=%d", inA, inB, rslt);
+
+    // Test Case: Bitwise XOR (alu_cmd = 4'b0101)
+    #10
+    alu_cmd = 4'b0101;
+    inA = 8'b00001100; // 12
+    inB = 8'b00000010; // 2
+    $display("Bitwise XOR: R1=%d, R2=%d, Rslt=%d", inA, inB, rslt);
+
+    // Test Case: Bitwise AND (alu_cmd = 4'b0110)
+    #10
+    alu_cmd = 4'b0110;
+    inA = 8'b00001100; // 12
+    inB = 8'b00000010; // 2
+    $display("Bitwise AND: R1=%d, R2=%d, Rslt=%d", inA, inB, rslt);
+
+    // Test Case: Add Immediate (alu_cmd = 4'b0111)
+    #10
+    alu_cmd = 4'b0111;
+    inA = 8'b00000001; // 1
+    inB = 8'b00000010; // 2
+    sc_i = 0;
+    $display("Add Immediate: R1=%d, R2=%d, Rslt=%d", inA, inB, rslt);
+
+    // Test Case: Move Immediate (alu_cmd = 4'b1010)
+    #10
+    alu_cmd = 4'b1010;
+    inA = 8'b00000001; // 1
+    inB = 8'b00000000; // Destination doesn't matter
+    $display("Move Immediate: R1=%d, R2=%d, Rslt=%d", inA, inB, rslt);
+
+    // Test Case: Branch Not Equal (alu_cmd = 4'b1000)
+    #10
+    alu_cmd = 4'b1000;
+    inA = 8'b00000001; // 1
+    inB = 8'b00000010; // 2
+    $display("Branch Not Equal: R1=%d, R2=%d, Equal=%d", inA, inB, equal);
+
+    // Test Case: Branch Equal (alu_cmd = 4'b1001)
+    #10
+    alu_cmd = 4'b1001;
+    inA = 8'b00000001; // 1
+    inB = 8'b00000001; // 1
+    $display("Branch Equal: R1=%d, R2=%d, Equal=%d", inA, inB, equal);
+
+    // Test Case: Compare (alu_cmd = 4'b1101)
+    #10
+    alu_cmd = 4'b1101;
+    inA = 8'b00000001; // 1
+    inB = 8'b00000001; // 1
+    $display("Compare: R1=%d, R2=%d, Equal=%d", inA, inB, equal);
+
+    // Test Case: No Operation (alu_cmd = 4'b1111)
+    #10
+    alu_cmd = 4'b1111;
+    inA = 8'b00000001; // 1
+    inB = 8'b00000000; // 0
+    $display("No Operation: R1=%d, R2=%d, Rslt=%d", inA, inB, rslt);
+end
