@@ -45,6 +45,7 @@ module top_level(
 
 // control decoder
   Control ctl1(.instr(),
+  .equal    (equal)  ,
   .RegDst  (), 
   .Branch  (relj)  , 
   .MemWrite , 
@@ -74,7 +75,8 @@ module top_level(
 		 .sc_i   (sc),   // output from sc register
 		 .rslt       ,
 		 .sc_o   (sc_o), // input to sc register
-		 .pari  );  
+		 .pari  
+     .equal (equal),);  
 
   dat_mem dm1(.dat_in(datB)  ,  // from reg_file
              .clk           ,

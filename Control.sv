@@ -1,6 +1,7 @@
 // control decoder
 module Control #(parameter opwidth = 4, mcodebits = 4)(
   input [mcodebits-1:0] instr,    // subset of machine code (any width you need)
+  input logic equal,              // equality flag from ALU
   output logic RegDst, Branch, 
      MemtoReg, MemWrite, ALUSrc, RegWrite,
   output logic[opwidth-1:0] ALUOp);	   // for up to 8 ALU operations
