@@ -17,3 +17,38 @@
 # Path name 'C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/(vlog-13069) C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv' doesn't exist.
 # Compile of alu_tb.sv failed with 18 errors.
 # Compile of alu_tb.sv was successful.
+vsim work.alu_tb
+# vsim work.alu_tb 
+# Start time: 22:02:31 on Nov 28,2024
+# Loading sv_std.std
+# Loading work.alu_tb
+# Loading work.alu
+vsim work.alu_tb
+# End time: 22:03:06 on Nov 28,2024, Elapsed time: 0:00:35
+# Errors: 0, Warnings: 13
+# vsim work.alu_tb 
+# Start time: 22:03:06 on Nov 28,2024
+# Loading sv_std.std
+# Loading work.alu_tb
+# Loading work.alu
+run
+# Add: R1=  1, R2=  2, Rslt=  0
+# Shift Left: R1=  2, R2=  1, Rslt=  3
+# Shift Right: R1=  4, R2=  1, Rslt=  4
+# Move A to B: R1= 12, R2=  0, Rslt=  2
+# Bitwise OR: R1= 12, R2=  2, Rslt= 12
+# Bitwise XOR: R1= 12, R2=  2, Rslt= 14
+# Bitwise AND: R1= 12, R2=  2, Rslt= 14
+# Add Immediate: R1=  1, R2=  2, Rslt=  0
+# Move Immediate: R1=  1, R2=  0, Rslt=  3
+# Branch Not Equal: R1=  1, R2=  2, Equal=0
+run -all
+# Branch Equal: R1=  1, R2=  1, Equal=0
+# Compare: R1=  1, R2=  1, Equal=1
+# No Operation: R1=  1, R2=  0, Rslt=  0
+# Break key hit
+# Break in Module alu_tb at C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv line 31
+quit -sim
+# End time: 22:05:46 on Nov 28,2024, Elapsed time: 0:02:40
+# Errors: 0, Warnings: 1
+# Compile of alu_tb.sv was successful.

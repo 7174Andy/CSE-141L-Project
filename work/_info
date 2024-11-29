@@ -36,24 +36,24 @@ Z5 o-work work -sv
 Z6 tCvgOpt 0
 valu_tb
 R0
-!s110 1732859838
+!s110 1732860943
 !i10b 1
-!s100 `Dna2V6;2MX6`iN9934_33
+!s100 IbX>5<?SN<O4Lmg12^iH32
 R1
-I:j1:j=cmDiTl6OdLgGKGe2
+IN9:aREbVal8I4oP`Y3`CZ1
 R2
 S1
 R3
-w1732859833
+w1732860924
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv
-!i122 8
-L0 1 131
+!i122 9
+L0 1 230
 R4
 r1
 !s85 0
 31
-!s108 1732859838.000000
+!s108 1732860943.000000
 !s107 C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv|
 !i113 1
