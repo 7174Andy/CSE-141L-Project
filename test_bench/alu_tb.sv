@@ -177,7 +177,7 @@ initial begin
     inA = 8'b00000001; // 1
     inB = 8'b00000010; // 2
     #1
-    if (equal == 1) begin
+    if (equal == 0) begin
         $display("Branch Not Equal: R1=%d, R2=%d, Equal=%d", inA, inB, equal);
     end
     else begin
@@ -192,7 +192,7 @@ initial begin
     inA = 8'b00000001; // 1
     inB = 8'b00000001; // 1
     #1
-    if (equal == 0) begin
+    if (equal == 1) begin
         $display("Branch Equal: R1=%d, R2=%d, Equal=%d", inA, inB, equal);
     end
     else begin
@@ -207,7 +207,7 @@ initial begin
     inA = 8'b00000001; // 1
     inB = 8'b00000001; // 1
     #1
-    if (equal == 0) begin
+    if (equal == 1) begin
         $display("Compare: R1=%d, R2=%d, Equal=%d", inA, inB, equal);
     end
     else begin
