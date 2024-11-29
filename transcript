@@ -1,0 +1,19 @@
+# Compile of alu.sv failed with 1 errors.
+# Compile of Control.sv failed with 1 errors.
+# Compile of dat_mem.sv was successful.
+# Compile of instr_ROM.sv was successful.
+# Compile of PC.sv was successful.
+# Compile of PC_LUT.sv was successful.
+# Compile of reg_file.sv was successful.
+# Compile of top_level.sv failed with 2 errors.
+# Compile of alu_tb.sv failed with 1 errors.
+# 9 compiles, 4 failed with 5 errors.
+# Compile of alu.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of top_level.sv failed with 1 errors.
+# Compile of top_level.sv failed with 1 errors.
+# Compile of top_level.sv was successful.
+# Error opening C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/(vlog-13069) C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv
+# Path name 'C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/(vlog-13069) C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv' doesn't exist.
+# Compile of alu_tb.sv failed with 18 errors.
+# Compile of alu_tb.sv was successful.

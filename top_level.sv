@@ -13,7 +13,7 @@ module top_level(
               immed;
   logic sc_in,   				  // shift/carry out from/to ALU
    		pariQ,              	  // registered parity flag from ALU
-		zeroQ;                    // registered zero flag from ALU 
+		zeroQ,                    // registered zero flag from ALU 
     equal;                      // equality flag from ALU
   wire  relj;                     // from control to PC; relative jump enable
   wire  pari,
@@ -75,8 +75,8 @@ module top_level(
 		 .sc_i   (sc),   // output from sc register
 		 .rslt       ,
 		 .sc_o   (sc_o), // input to sc register
-		 .pari  
-     .equal (equal),);  
+		 .pari,  
+     .equal (equal));  
 
   dat_mem dm1(.dat_in(datB)  ,  // from reg_file
              .clk           ,

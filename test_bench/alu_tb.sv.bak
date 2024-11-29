@@ -15,15 +15,15 @@ logic clk;
 
 // Initialize the ALU
 alu alu1 (
-  .alu_cmd(alu_cmd),    // ALU instructions
-  .inA(inA), 
-  .inB(inB),	 // 8-bit wide data path
-  .sc_i(sc_i),       // shift_carry in
-  .rslt(rslt),
-  .sc_o(sc_o),     // shift_carry out
-  .pari(pari),     // reduction XOR (output)
-  .zero(zero),      // NOR (output)
-  .equal(equal)     // equality (output)
+  alu_cmd(alu_cmd),    // ALU instructions
+  inA(inA), 
+  inB(inB),	 // 8-bit wide data path
+  sc_i(sc_i),       // shift_carry in
+  rslt(rslt),
+  sc_o(sc_o),     // shift_carry out
+  pari(pari),     // reduction XOR (output)
+  zero(zero),      // NOR (output)
+  equal(equal)     // equality (output)
 );
 
 // Clock generator

@@ -21,8 +21,7 @@ case(instr)    // override defaults with exceptions
                MemWrite = 'b1;      // write to data mem
                RegWrite = 'b0;      // typically don't also load reg_file
 			 end
-  'b00001:  ALUOp      = 'b000
-  0;  // add:  y = a+b
+  'b00001:  ALUOp      = 'b0000;  // add:  y = a+b
   'b00010:  begin				  // load
 			   MemtoReg = 'b1;    // 
              end

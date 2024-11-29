@@ -7,7 +7,7 @@ module alu(
   output logic[7:0] rslt,
   output logic sc_o,     // shift_carry out
                pari,     // reduction XOR (output)
-			   zero      // NOR (output)
+			   zero,      // NOR (output)
          equal     // equality (output)
 );
 
