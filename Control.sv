@@ -1,6 +1,6 @@
 // control decoder
-module Control #(parameter opwidth = 4, mcodebits = 9)(
-  input [mcodebits-1:0] instr,    // subset of machine code (any width you need)
+module Control #(parameter opwidth = 4, mcodebits = 4)(
+  input [mcodebits-1:0] instr,    // subset of machine code (any width you need) -- 4 bits because 16 instructions
   input logic equal,              // equality flag from ALU
   output logic RegDst, Branch, 
                MemtoReg, MemWrite, ALUSrc, RegWrite,
@@ -98,7 +98,7 @@ case(instr)    // override defaults with exceptions
             end
 
   'b1000:   begin				      // BNE (branch)
-			         Branch = equal ? 'b1: 0;
+			         Branch = equal ? 0: 'b1;
                ALUop = 'b1000;
                MemWrite = 'b0;
                ALUsrc = 'b0;
@@ -106,7 +106,7 @@ case(instr)    // override defaults with exceptions
                MemtoReg = 'b0; 
             end
 
-  'b1010:   begin				      // BEQ (branch)
+  'b1001:   begin				      // BEQ (branch)
 			         Branch = equal ? 'b1: 0
                ALUop = 'b1001;
                MemWrite = 'b0;
@@ -115,7 +115,7 @@ case(instr)    // override defaults with exceptions
                MemtoReg = 'b0; 
             end
 
-  'b1011:   begin				      // MOVi
+  'b1010:   begin				      // MOVi
 			         RegDst = 'b0;  
                Branch = 'b0;
                MemWrite = 'b0;
@@ -125,7 +125,7 @@ case(instr)    // override defaults with exceptions
                ALUOp    = 'b1010;
             end
 
-  'b1100:   begin				      // SW
+  'b1011:   begin				      // SW
                Branch = 'b0;
                MemWrite = 'b1;
                ALUsrc = 'b1;
@@ -133,7 +133,7 @@ case(instr)    // override defaults with exceptions
                MemtoReg = 'b0;
             end
 
-  'b1101:   begin				      // LW
+  'b1100:   begin				      // LW
 			         RegDst = 'b0;  
                Branch = 'b0;
                MemWrite = 'b0;
@@ -160,7 +160,6 @@ case(instr)    // override defaults with exceptions
                MemtoReg = 'b0;
                ALUOp    = 'b1111;
             end
-// ...
 endcase
 
 end
