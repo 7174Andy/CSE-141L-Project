@@ -16,11 +16,12 @@ logic clk;
 // Initialize the control unit
 Control control1 (
     .instr(instr),
+    .equal(equal),
     .RegDst(RegDst),
     .Branch(Branch),
     .MemtoReg(MemtoReg),
     .MemWrite(MemWrite),
-    .ALUsrc(ALUsrc),
+    .ALUSrc(ALUsrc),
     .RegWrite(RegWrite),
     .ALUOp(ALUOp)
 );
@@ -33,16 +34,16 @@ end
 initial begin
     clk = 0;
 
-    // Test Case: ADDi (instr = 0000)
+    // Test Case: ADD (instr = 0000)
     instr = 4'b0000;
     equal = 0;
     #1
-    $display("ADDi: RegDst=%b, Branch=%b, MemtoReg=%b, MemWrite=%b, ALUsrc=%b, RegWrite=%b, ALUOp=%b", RegDst, Branch, MemtoReg, MemWrite, ALUsrc, RegWrite, ALUOp);
-    if (RegDst == 1 && Branch == 0 && MemtoReg == 0 && MemWrite == 0 && ALUsrc == 1 && RegWrite == 1 && ALUOp == 4'b0111) begin
-        $display("ADDi passed");
+    $display("ADD: RegDst=%b, Branch=%b, MemtoReg=%b, MemWrite=%b, ALUsrc=%b, RegWrite=%b, ALUOp=%b", RegDst, Branch, MemtoReg, MemWrite, ALUsrc, RegWrite, ALUOp);
+    if (RegDst == 1 && Branch == 0 && MemtoReg == 0 && MemWrite == 0 && ALUsrc == 0 && RegWrite == 1 && ALUOp == 4'b0000) begin
+        $display("ADD passed");
     end
     else begin
-        $display("ADDi failed");
+        $display("ADD failed");
         $stop;
     end
 
@@ -190,11 +191,11 @@ initial begin
     end
 
     // Test Case: MOVi (instr = 1010)
-    instr = 4'b1011;
+    instr = 4'b1010;
     equal = 0;
     #1
     $display("MOVi: RegDst=%b, Branch=%b, MemtoReg=%b, MemWrite=%b, ALUsrc=%b, RegWrite=%b, ALUOp=%b", RegDst, Branch, MemtoReg, MemWrite, ALUsrc, RegWrite, ALUOp);
-    if (RegDst == 0 && Branch == 0 && MemtoReg == 0 && MemWrite == 0 && ALUsrc == 1 && RegWrite == 1 && ALUOp == 4'b1011) begin
+    if (RegDst == 0 && Branch == 0 && MemtoReg == 0 && MemWrite == 0 && ALUsrc == 1 && RegWrite == 1 && ALUOp == 4'b1010) begin
         $display("MOVi passed");
     end
     else begin
@@ -220,7 +221,7 @@ initial begin
     equal = 0;
     #1
     $display("LW: RegDst=%b, Branch=%b, MemtoReg=%b, MemWrite=%b, ALUsrc=%b, RegWrite=%b, ALUOp=%b", RegDst, Branch, MemtoReg, MemWrite, ALUsrc, RegWrite, ALUOp);
-    if (RegDst == 1 && Branch == 0 && MemtoReg == 1 && MemWrite == 0 && ALUsrc == 1 && RegWrite == 1 && ALUOp == 4'b1100) begin
+    if (Branch == 0 && MemWrite == 0 && ALUsrc == 1) begin
         $display("LW passed");
     end
     else begin

@@ -160,6 +160,24 @@ case(instr)    // override defaults with exceptions
                MemtoReg = 'b0;
                ALUOp    = 'b1111;
             end
+   'b1110:  begin				      // No-operation
+                  RegDst = 'b0;  
+               Branch = 'b0;
+               MemWrite = 'b0;
+               ALUSrc = 'b0;
+               RegWrite = 'b0;
+               MemtoReg = 'b0;
+               ALUOp    = 'b1111;
+            end
+   'b1111:  begin				      // No-operation
+                  RegDst = 'b0;  
+               Branch = 'b0;
+               MemWrite = 'b0;
+               ALUSrc = 'b0;
+               RegWrite = 'b0;
+               MemtoReg = 'b0;
+               ALUOp    = 'b1111;
+            end
 endcase
 
 end

@@ -1,4 +1,11 @@
-{C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv}
+{C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/Control.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/Control.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Control
+
+Top level modules:
+	Control
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module instr_ROM
 
@@ -18,6 +25,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	alu_tb
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module alu
+
+Top level modules:
+	alu
 
 } {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -46,5 +60,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	PC_LUT
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/control_tb.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/control_tb.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module control_tb
+
+Top level modules:
+	control_tb
 
 } {} {}}
