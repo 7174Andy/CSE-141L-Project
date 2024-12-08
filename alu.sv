@@ -1,5 +1,4 @@
 // combinational -- no clock
-// sample -- change as desired
 module alu(
   input[3:0] alu_cmd,    // ALU instructions
   input[7:0] inA, inB,	 // 8-bit wide data path
