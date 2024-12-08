@@ -44,7 +44,7 @@ module top_level(
                .mach_code);
 
 // control decoder
-  Control ctl1(.instr(),
+  Control ctl1(.instr(mach_code[8:5]),
   .equal    (equal)  ,
   .RegDst  (), 
   .Branch  (relj)  , 
@@ -54,8 +54,8 @@ module top_level(
   .MemtoReg(),
   .ALUOp());
 
-  assign rd_addrA = mach_code[2:0];
-  assign rd_addrB = mach_code[4:3];
+  assign rd_addrA = mach_code[1:0];
+  assign rd_addrB = mach_code[4:2];
   assign alu_cmd  = mach_code[8:5];
 
   reg_file #(.pw(3)) rf1(.dat_in(regfile_dat),	   // loads, most ops
@@ -69,7 +69,7 @@ module top_level(
 
   assign muxB = ALUSrc? immed : datB;
 
-  alu alu1(.alu_cmd(),
+  alu alu1(.alu_cmd(alu_cmd),
          .inA    (datA),
 		 .inB    (muxB),
 		 .sc_i   (sc),   // output from sc register
