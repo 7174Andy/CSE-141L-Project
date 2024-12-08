@@ -21,7 +21,7 @@ case(instr)    // override defaults with exceptions
                RegDst = 'b1;  
                Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b0;
+               ALUSrc = 'b0;
                RegWrite = 'b1;
                MemtoReg = 'b0;
                ALUOp    = 'b0000;
@@ -31,7 +31,7 @@ case(instr)    // override defaults with exceptions
                RegDst = 'b1;  
                Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b1;
+               ALUSrc = 'b1;
                RegWrite = 'b1;
                MemtoReg = 'b0;
                ALUOp    = 'b0001;  // add:  y = a+b
@@ -41,7 +41,7 @@ case(instr)    // override defaults with exceptions
 			         RegDst = 'b1;  
                Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b1;
+               ALUSrc = 'b1;
                RegWrite = 'b1;
                MemtoReg = 'b0;
                ALUOp    = 'b0010;  
@@ -51,7 +51,7 @@ case(instr)    // override defaults with exceptions
 			         RegDst = 'b1;  
                Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b0;
+               ALUSrc = 'b0;
                RegWrite = 'b1;
                MemtoReg = 'b0;
                ALUOp    = 'b0011;
@@ -61,7 +61,7 @@ case(instr)    // override defaults with exceptions
 			         RegDst = 'b1;  
                Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b0;
+               ALUSrc = 'b0;
                RegWrite = 'b1;
                MemtoReg = 'b0;
                ALUOp    = 'b0100;
@@ -71,7 +71,7 @@ case(instr)    // override defaults with exceptions
 			         RegDst = 'b1;  
                Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b0;
+               ALUSrc = 'b0;
                RegWrite = 'b1;
                MemtoReg = 'b0;
                ALUOp    = 'b0101;  
@@ -81,7 +81,7 @@ case(instr)    // override defaults with exceptions
 			         RegDst = 'b1;  
                Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b0;
+               ALUSrc = 'b0;
                RegWrite = 'b1;
                MemtoReg = 'b0; 
                ALUOp    = 'b0110;
@@ -91,7 +91,7 @@ case(instr)    // override defaults with exceptions
 			         RegDst = 'b0;  
                Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b1;
+               ALUSrc = 'b1;
                RegWrite = 'b1;
                MemtoReg = 'b0;
                ALUOp    = 'b0111;
@@ -99,18 +99,18 @@ case(instr)    // override defaults with exceptions
 
   'b1000:   begin				      // BNE (branch)
 			         Branch = equal ? 0: 'b1;
-               ALUop = 'b1000;
+               ALUOp = 'b1000;
                MemWrite = 'b0;
-               ALUsrc = 'b0;
+               ALUSrc = 'b0;
                RegWrite = 'b0;
                MemtoReg = 'b0; 
             end
 
   'b1001:   begin				      // BEQ (branch)
-			         Branch = equal ? 'b1: 0
-               ALUop = 'b1001;
+			         Branch = equal ? 'b1: 0;
+               ALUOp = 'b1001;
                MemWrite = 'b0;
-               ALUsrc = 'b0;
+               ALUSrc = 'b0;
                RegWrite = 'b0;
                MemtoReg = 'b0; 
             end
@@ -119,7 +119,7 @@ case(instr)    // override defaults with exceptions
 			         RegDst = 'b0;  
                Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b1;
+               ALUSrc = 'b1;
                RegWrite = 'b1;
                MemtoReg = 'b0; 
                ALUOp    = 'b1010;
@@ -128,7 +128,7 @@ case(instr)    // override defaults with exceptions
   'b1011:   begin				      // SW
                Branch = 'b0;
                MemWrite = 'b1;
-               ALUsrc = 'b1;
+               ALUSrc = 'b1;
                RegWrite = 'b0;
                MemtoReg = 'b0;
             end
@@ -137,7 +137,7 @@ case(instr)    // override defaults with exceptions
 			         RegDst = 'b0;  
                Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b1;
+               ALUSrc = 'b1;
                RegWrite = 'b1;
                MemtoReg = 'b1;
             end
@@ -145,7 +145,7 @@ case(instr)    // override defaults with exceptions
   'b1101:   begin				      // CMP
 			         Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b0;
+               ALUSrc = 'b0;
                RegWrite = 'b0;
                MemtoReg = 'b0;
                ALUOp    = 'b1101;
@@ -155,7 +155,7 @@ case(instr)    // override defaults with exceptions
 			         RegDst = 'b0;  
                Branch = 'b0;
                MemWrite = 'b0;
-               ALUsrc = 'b0;
+               ALUSrc = 'b0;
                RegWrite = 'b0;
                MemtoReg = 'b0;
                ALUOp    = 'b1111;
