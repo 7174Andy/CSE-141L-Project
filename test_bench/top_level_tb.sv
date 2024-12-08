@@ -1,4 +1,4 @@
-module top_level;
+module top_level_tb;
 
 logic clk, reset, req;
 logic done;
@@ -30,3 +30,21 @@ initial begin
     #20 req = 0;               // Remove request after 20 ns
 end
 
+// Monitor outputs
+initial begin
+    $monitor("Time: %t | Reset: %b | Req: %b | Done: %b", $time, reset, req, done);
+end
+
+// End Simulation
+initial begin
+    #200;
+    $finish;
+end
+
+initial begin
+    wait (done == 1);
+    $display("Simulation complete");
+    $finish;
+end
+
+endmodule
