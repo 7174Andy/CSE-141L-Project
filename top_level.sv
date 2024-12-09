@@ -11,7 +11,8 @@ module top_level(
               muxB, 
 			  rslt,               // alu output
         dat_out,            // from dat_mem
-              immed;
+              immed,
+              regfile_dat;        // from reg_file
   logic sc_in,   				  // shift/carry out from/to ALU
    		pariQ,              	  // registered parity flag from ALU
 		zeroQ,                    // registered zero flag from ALU 
@@ -65,7 +66,7 @@ module top_level(
   assign wr_addr = enable_write? rd_addrA : 'b0000;
 
   reg_file #(.pw(3)) rf1(.dat_in(regfile_dat),	   // loads, most ops
-              .clk         ,
+              .clk         , 
               .wr_en   (RegWrite),
               .rd_addrA(rd_addrA),
               .rd_addrB(rd_addrB),
