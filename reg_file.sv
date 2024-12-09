@@ -4,7 +4,7 @@ module reg_file #(parameter pw=4)(
   input[7:0] dat_in,
   input      clk,
   input      wr_en,           // write enable
-  input[pw:0] wr_addr,		  // write address pointer
+  input[pw-1:0] wr_addr,		  // write address pointer
               rd_addrA,		  // read address pointers
 			  rd_addrB,
   output logic[7:0] datA_out, // read data
@@ -18,8 +18,15 @@ module reg_file #(parameter pw=4)(
 
 // writes are sequential (clocked)
   always_ff @(posedge clk)
-    if(wr_en)				   // anything but stores or no ops
-      core[wr_addr] <= dat_in; 
+    if(wr_en) begin				   // anything but stores or no ops
+      core[wr_addr] <= dat_in;
+	  $display("[%0t] WRITE: core[%0d] <= 0x%0h", $time, wr_addr, dat_in);
+	end
+	else begin
+		$display("[%0t] READ: core[%0d] => 0x%0h", $time, wr_addr, core[wr_addr]);
+	end
+	
+
 
 endmodule
 /*

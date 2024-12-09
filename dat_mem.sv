@@ -13,7 +13,12 @@ module dat_mem (
 
 // writes are sequential (clocked) -- occur on stores or pushes 
   always_ff @(posedge clk)
-    if(wr_en)				  // wr_en usually = 0; = 1 		
-      core[addr] <= dat_in; 
+    if(wr_en) begin				  // wr_en usually = 0; = 1 		
+      core[addr] <= dat_in;
+      $display("[%0t] WRITE: addr = 0x%0h, dat_in = 0x%0h", $time, addr, dat_in);
+    end
+    else begin
+      $display("[%0t] READ: addr = 0x%0h, dat_out = 0x%0h", $time, addr, dat_out);
+    end
 
 endmodule

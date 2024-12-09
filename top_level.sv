@@ -10,6 +10,7 @@ module top_level(
   wire[7:0]   datA,datB,		  // from RegFile
               muxB, 
 			  rslt,               // alu output
+        dat_out,            // from dat_mem
               immed;
   logic sc_in,   				  // shift/carry out from/to ALU
    		pariQ,              	  // registered parity flag from ALU
@@ -24,7 +25,7 @@ module top_level(
         ALUSrc;		              // immediate switch
   wire[A-1:0] alu_cmd;
   wire[8:0]   mach_code;          // machine code
-  wire[2:0] rd_addrA, rd_adrB;    // address pointers to reg_file
+  wire[2:0] rd_addrA, rd_addrB, wr_addr;    // address pointers to reg_file
 // fetch subassembly
   PC #(.D(D)) 					  // D sets program counter width
      pc1 (.reset            ,
@@ -51,19 +52,24 @@ module top_level(
   .MemWrite , 
   .ALUSrc   , 
   .RegWrite   ,     
-  .MemtoReg(),
-  .ALUOp());
+  .MemtoReg(MemtoReg),
+  .ALUOp(alu_cmd));
 
-  assign rd_addrA = mach_code[1:0];
-  assign rd_addrB = mach_code[4:2];
+  assign rd_addrA = mach_code[2:0];
+  assign rd_addrB = {1'b0, mach_code[4:3]}; // zero extend to 3 bits;
   assign alu_cmd  = mach_code[8:5];
+  assign immed    = {5'b0, mach_code[2:0]}; // zero-extend to 8 bits
+
+  wire enable_write = alu_cmd == 'b0011 || alu_cmd == 'b1010 || MemtoReg;
+
+  assign wr_addr = enable_write? rd_addrA : 'b0000;
 
   reg_file #(.pw(3)) rf1(.dat_in(regfile_dat),	   // loads, most ops
               .clk         ,
               .wr_en   (RegWrite),
               .rd_addrA(rd_addrA),
               .rd_addrB(rd_addrB),
-              .wr_addr (rd_addrB),      // in place operation
+              .wr_addr (wr_addr),      // in place operation
               .datA_out(datA),
               .datB_out(datB)); 
 
@@ -76,13 +82,16 @@ module top_level(
 		 .rslt       ,
 		 .sc_o   (sc_o), // input to sc register
 		 .pari,  
-     .equal (equal));  
+     .equal (equal),
+     .zero  (zero) );  
 
   dat_mem dm1(.dat_in(datB)  ,  // from reg_file
              .clk           ,
 			 .wr_en  (MemWrite), // stores
 			 .addr   (datA),
-             .dat_out());
+             .dat_out(dat_out));
+
+  assign regfile_dat = MemtoReg? dat_out : rslt;
 
 // registered flags from ALU
   always_ff @(posedge clk) begin

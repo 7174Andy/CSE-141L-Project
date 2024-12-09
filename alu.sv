@@ -40,7 +40,7 @@ always_comb begin
 	4'b0111: // add immediate
     {sc_o,rslt} = inA + inB + sc_i;
   4'b1010: // move immediate
-    rslt = inA;
+    rslt = inB;
   4'b1000: // bne
     equal = inA == inB;
   4'b1001: // beq

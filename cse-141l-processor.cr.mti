@@ -5,12 +5,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	Control
 
-} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv}
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/top_level_tb.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/top_level_tb.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module instr_ROM
+-- Compiling module top_level_tb
 
 Top level modules:
-	instr_ROM
+	top_level_tb
 
 } {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/reg_file.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/reg_file.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -26,12 +26,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	alu_tb
 
-} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv}
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module alu
+-- Compiling module instr_ROM
 
 Top level modules:
-	alu
+	instr_ROM
 
 } {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -40,12 +40,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	top_level
 
-} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/dat_mem.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/dat_mem.sv}
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module dat_mem
+-- Compiling module alu
 
 Top level modules:
-	dat_mem
+	alu
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module PC_LUT
+
+Top level modules:
+	PC_LUT
 
 } {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -54,12 +61,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	PC
 
-} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv}
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/dat_mem.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/dat_mem.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module PC_LUT
+-- Compiling module dat_mem
 
 Top level modules:
-	PC_LUT
+	dat_mem
 
 } {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/control_tb.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/control_tb.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020

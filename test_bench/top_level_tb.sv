@@ -1,19 +1,22 @@
 module top_level_tb;
 
-logic clk, reset, req;
+logic clk, reset;
 logic done;
 
+// Since we don't use req, drive it to 0.
+logic req = 1'b0;
+
 top_level dut (
-  .clk(clk),
-  .reset(reset),
-  .req(req),
-  .done(done)
+  .clk   (clk),
+  .reset (reset),
+  .req   (req),
+  .done  (done)
 );
 
 // Clock generation
 initial begin
     clk = 0;
-    #5 clk = ~clk;
+    forever #5 clk = ~clk;
 end
 
 // Reset generation
@@ -22,25 +25,18 @@ initial begin
     #15 reset = 0;
 end
 
- // Stimulus
+// Monitor outputs (removed req from the printout if not needed)
 initial begin
-    req = 0;
-    wait (!reset);             // Wait for reset to deassert
-    #10 req = 1;               // Apply request signal
-    #20 req = 0;               // Remove request after 20 ns
+    $monitor("Time: %t | Reset: %b | Done: %b", $time, reset, done);
 end
 
-// Monitor outputs
-initial begin
-    $monitor("Time: %t | Reset: %b | Req: %b | Done: %b", $time, reset, req, done);
-end
-
-// End Simulation
+// End Simulation after 200 time units
 initial begin
     #200;
     $finish;
 end
 
+// Wait for done to go high
 initial begin
     wait (done == 1);
     $display("Simulation complete");
