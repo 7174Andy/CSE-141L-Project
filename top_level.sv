@@ -79,7 +79,7 @@ module top_level(
   alu alu1(.alu_cmd(alu_cmd),
          .inA    (datA),
 		 .inB    (muxB),
-		 .sc_i   (sc),   // output from sc register
+		 .sc_i   (sc_in),   // output from sc register
 		 .rslt       ,
 		 .sc_o   (sc_o), // input to sc register
 		 .pari,  
@@ -99,6 +99,11 @@ module top_level(
     pariQ <= pari;
 	zeroQ <= zero;
   equal <= zero;
+  if (reset) begin
+    pariQ <= 'b0;
+    zeroQ <= 'b0;
+    sc_in <= 'b0;
+  end
     if(sc_clr)
 	  sc_in <= 'b0;
     else if(sc_en)
