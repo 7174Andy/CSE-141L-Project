@@ -1,0 +1,69 @@
+; Initialize Zero Register
+movi R7, 0           ; R7 = 0 (zero register for comparisons)
+
+; Load Floating-Point X from Memory[5] (MSB) and Memory[4] (LSB)
+movi R6, 5           ; R6 = 5 (address of MSB)
+lw   R3, [R6]        ; R3 = Memory[5] (MSB of X)
+
+movi R6, 4           ; R6 = 4 (address of LSB)
+lw   R4, [R6]        ; R4 = Memory[4] (LSB of X)
+
+; Combine MSB and LSB into 16-bit X in R1
+sll  R3, 8           ; Shift MSB left by 8 bits
+or   R3, R4          ; Combine MSB and LSB into R3
+mov  R1, R3          ; R1 = X (floating-point number)
+
+; Extract Sign
+movi R2, 15          ; R2 = 15 (1 << 15)
+and  R2, R1          ; R2 = X & 0x8000 (extract sign bit)
+
+; Extract Exponent
+sll  R3, 1           ; Shift X left to remove the sign bit
+slr  R3, 5           ; Shift right by 5 to extract exponent
+mov  R4, R3          ; R4 = Exponent (stored temporarily)
+addi R4, -15         ; R4 = Exponent - Bias (unbiased exponent)
+
+; Check for Denormalized Numbers
+bne  R4, NORMALIZED  ; If R4 != 0 (not denormalized), branch to NORMALIZED
+movi R1, 0           ; R1 = 0 (denormalized numbers are treated as zero)
+b   STORE_RESULT     ; Branch to store result
+
+; NORMALIZED: Handle Normalized Numbers
+NORMALIZED:
+movi R5, 1023        ; R5 = 0x03FF (mask for mantissa)
+and  R3, R5          ; R3 = X & 0x03FF (extract mantissa)
+or   R3, 1024        ; Add implicit leading 1 to mantissa (R3 = 1.Mantissa)
+
+; Shift Mantissa Based on Exponent
+beq  R4, SHIFT_RIGHT ; If R4 == 0, branch to SHIFT_RIGHT (no shift required)
+sll  R3, R4          ; Shift left by R4 (for positive exponent)
+b   STORE_SIGN       ; Branch to STORE_SIGN
+
+; SHIFT_RIGHT: Handle Right Shifts
+SHIFT_RIGHT:
+slr  R3, -R4         ; Shift right by absolute value of R4
+
+; STORE_SIGN: Apply Sign to Result
+STORE_SIGN:
+bne  R2, NEGATIVE    ; If R2 != 0 (negative), branch to NEGATIVE
+mov  R1, R3          ; R1 = R3 (positive number, no negation)
+b   STORE_RESULT     ; Branch to STORE_RESULT
+
+NEGATIVE:
+xor  R3, 0xFFFF      ; Invert bits (two's complement step 1)
+addi R3, 1           ; Add 1 to complete two's complement
+mov  R1, R3          ; R1 = R3 (negative result)
+
+; STORE_RESULT: Store Integer Result in Memory
+STORE_RESULT:
+movi R6, 6           ; R6 = 6 (address for LSB of result)
+and  R4, 0x00FF      ; R4 = R1 & 0x00FF (extract LSB)
+sw   R4, [R6]        ; Memory[6] = LSB of result
+
+slr  R1, 8           ; Shift R1 right by 8 bits to get MSB
+movi R6, 7           ; R6 = 7 (address for MSB of result)
+sw   R1, [R6]        ; Memory[7] = MSB of result
+
+; End Program
+END:
+b   END              ; Infinite loop (halt)
