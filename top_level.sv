@@ -31,7 +31,6 @@ module top_level(
   PC #(.D(D)) 					  // D sets program counter width
      pc1 (.reset            ,
          .clk              ,
-		 .reljump_en (relj),
 		 .absjump_en (absj),
 		 .target           ,
 		 .prog_ctr          );
