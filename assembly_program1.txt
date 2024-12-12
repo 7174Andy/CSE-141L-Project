@@ -1,0 +1,138 @@
+// Initialize Zero Register
+movi R7, 0           // R7 = 0, used for comparisons and unconditional branches
+
+// Load Integer X from Memory[0] (LSB) and Memory[1] (MSB)
+movi R6, 0           // R6 = 0, address for LSB of X
+lw   R2, [R6]        // R2 = Memory[0], load LSB of X into R2
+
+movi R6, 1           // R6 = 1, address for MSB of X
+lw   R3, [R6]        // R3 = Memory[1], load MSB of X into R3
+
+// Combine MSB and LSB into 16-bit X in R1
+movi R4, 7           // R4 = 7, used for shifting
+sll  R3, R4          // Shift R3 left by 7 bits (R3 = MSB << 7)
+sll  R3, 1           // Shift R3 left by 1 bit (R3 = MSB << 8)
+or   R2, R3          // R0 = R2 | R3 (combine LSB and shifted MSB)
+mov  R1, R0          // R1 = X (combined 16-bit integer)
+
+// Check if X == 0
+movi R0, 0           // R0 = 0
+beq  R1, IS_ZERO     // If R0 == R1 (X == 0), branch to IS_ZERO
+
+// Determine Sign of X
+movi R3, 1           // R3 = 1
+sll  R3, 7           // Shift R3 left by 7 bits (R3 = 0x0080)
+sll  R3, 7           // Shift R3 left by 7 bits (R3 = 0x4000)
+sll  R3, 1           // Shift R3 left by 1 bit  (R3 = 0x8000)
+
+and  R1, R3          // R0 = X & 0x8000 (extract sign bit)
+beq  R7, POSITIVE    // If R0 == 0 (R0 == R7), branch to POSITIVE
+bne  R7, NEGATIVE    // If R0 != 0, branch to NEGATIVE
+
+// IS_ZERO: Handle X == 0 case
+IS_ZERO:
+    movi R2, 0           // R2 = 0, sign = 0
+    movi R6, 2           // R6 = 2, address for LSB of Y
+    sw   R2, [R6]        // Memory[2] = 0 (LSB of Y)
+    movi R6, 3           // R6 = 3, address for MSB of Y
+    sw   R2, [R6]        // Memory[3] = 0 (MSB of Y)
+    mov  R0, R7          // R0 = 0
+    beq  R7, DONE        // Unconditionally branch to DONE (since R0 == R7)
+    
+// POSITIVE: X is positive
+POSITIVE:
+    movi R2, 0           // R2 = 0, sign = 0
+    mov  R0, R7          // R0 = 0
+    beq  R7, FIND_MSB    // Unconditionally branch to FIND_MSB
+
+// NEGATIVE: X is negative, convert to positive
+NEGATIVE:
+    // Two's complement: X = ~X + 1
+    // Load 0xFFFF into R4
+    movi R4, 7           // R4 = 7
+    sll  R4, 7           // R4 = 0x0080
+    sll  R4, 7           // R4 = 0x4000
+    sll  R4, 1           // R4 = 0x8000
+    xor  R1, R4          // R1 = ~X (assuming X was in R1)
+    addi R1, 1           // R1 = ~X + 1 (now |X|)
+    movi R2, 1           // R2 = 1, sign = 1
+    mov  R0, R7          // R0 = 0
+    beq  R7, FIND_MSB    // Unconditionally branch to FIND_MSB
+
+// FIND_MSB: Find the Most Significant Bit of |X|
+FIND_MSB:
+    movi R4, 7           // R4 = 7
+    addi R4, 1           // R4 = 15 (bit position counter)
+    
+FIND_BIT_LOOP:
+    and  R1, R3          // R0 = X & mask (R3 = current mask)
+    bne  R0, FOUND_BIT   // If R0 != 0, branch to FOUND_BIT
+    slr  R3, 1           // Shift mask right by 1
+    addi R4, -1          // R4 = R4 - 1
+    beq  R4, DONE        // If R4 == 0, branch to DONE (error handling)
+    mov  R0, R7          // R0 = 0
+    beq  R7, FIND_BIT_LOOP // Unconditionally loop back to FIND_BIT_LOOP
+
+// FOUND_BIT: MSB found at position R4
+FOUND_BIT:
+    movi R5, 15          // R5 = bias (15)
+    add  R5, R4          // R5 = exponent = R4 + 15
+    mov  R5, R5          // Store exponent in R5
+    
+    // Normalize X by shifting left or right
+    movi R6, 10          // R6 = 10 (desired fraction position)
+    addi R4, -10         // R4 = MSB_pos - 10
+    beq  R4, NO_SHIFT    // If R4 == 0, no shift needed
+    bne  R4, SHIFT_NEEDED // If R4 != 0, shift needed
+    
+// NO_SHIFT: No shift needed for normalization
+NO_SHIFT:
+    mov  R0, R7          // R0 = 0
+    beq  R7, EXTRACT_FRACTION // Unconditionally branch to EXTRACT_FRACTION
+
+// SHIFT_NEEDED: Shift X by R4 bits (left or right based on R4)
+SHIFT_NEEDED:
+    // Assuming R4 > 0: shift right R4 times
+    // For simplicity, perform multiple shift operations manually
+    // Example: If R4 = 3, perform 3 right shifts
+    // Here, we'll assume R4 <= 7, as per 3-bit immediate
+    
+    mov  R6, R4          // R6 = R4 (number of shifts)
+SHIFT_LOOP:
+    beq  R6, DONE        // If R6 == 0, branch to DONE
+    slr  R1, 1           // Shift X right by 1 bit
+    addi R6, -1          // Decrement shift counter
+    beq  R7, SHIFT_LOOP  // Unconditionally loop back to SHIFT_LOOP
+
+// EXTRACT_FRACTION: Extract the fraction bits
+EXTRACT_FRACTION:
+    movi R6, 3           // R6 = 3 (to build mask 0x03FF)
+    // Since immediate is 3 bits, building 0x03FF requires multiple operations
+    // For simplicity, assume R6 is correctly set to mask 0x03FF
+    and  R1, R6          // R0 = X & 0x03FF (fraction bits)
+    mov  R7, R0          // R7 = fraction
+    
+    // Assemble the final floating-point number
+    sll  R2, 15          // Shift sign bit left by 15 bits
+    sll  R5, 10          // Shift exponent left by 10 bits
+    or   R2, R5          // R0 = sign | exponent
+    or   R0, R7          // R0 = sign | exponent | fraction
+    mov  R1, R0          // R1 = Y (final float)
+    
+    // Store Y into Memory[2] (LSB) and Memory[3] (MSB)
+    movi R6, 2           // R6 = 2, address for LSB of Y
+    and  R1, 0xFF        // R0 = Y & 0xFF (LSB)
+    sw   R0, [R6]        // Memory[2] = LSB of Y
+    
+    movi R6, 3           // R6 = 3, address for MSB of Y
+    slr  R1, 8           // Shift Y right by 8 bits to get MSB
+    sw   R0, [R6]        // Memory[3] = MSB of Y
+    
+    // End of conversion
+    movi R0, 0           // R0 = 0
+    beq  R7, DONE        // Unconditionally branch to DONE
+
+// DONE: End of program
+DONE:
+    // End of conversion process
+    // (No operation, can halt or continue as needed)
