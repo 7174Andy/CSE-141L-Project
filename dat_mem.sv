@@ -20,5 +20,4 @@ module dat_mem (
     else begin
       $display("[%0t] READ: addr = 0x%0h, dat_out = 0x%0h", $time, addr, dat_out);
     end
-
 endmodule
