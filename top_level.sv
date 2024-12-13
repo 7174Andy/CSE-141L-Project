@@ -17,7 +17,7 @@ module top_level(
    		  pariQ,              	  // registered parity flag from ALU
 		    zeroQ,                    // registered zero flag from ALU 
         equal;                      // equality flag from ALU
-  wire  relj;                     // from control to PC; relative jump enable
+  wire  branch;                     // from control to PC; relative jump enable
   wire  pari,
         zero,
 		    sc_clr,
@@ -26,14 +26,27 @@ module top_level(
         ALUSrc;		              // immediate switch
   wire[A-1:0] alu_cmd;
   wire[8:0]   mach_code;          // machine code
-  wire[2:0] rd_addrA, rd_addrB, wr_addr;    // address pointers to reg_file
+  wire[2:0] rd_addrA, rd_addrB, wr_addr, how_high;    // address pointers to reg_file
 // fetch subassembly
   PC #(.D(D)) 					  // D sets program counter width
      pc1 (.reset           ,
          .clk              ,
-         .absjump_en (absj),
+         .branch           ,
          .target           ,
          .prog_ctr          );
+
+  assign rd_addrA = mach_code[2:0];
+  assign rd_addrB = {1'b0, mach_code[4:3]}; // zero extend to 3 bits;
+  assign alu_cmd  = mach_code[8:5];
+  assign immed    = {5'b0, mach_code[2:0]}; // zero-extend to 8 bits
+
+  assign how_high = 3'b000;
+  assign branch = 1'b0;
+
+  if (alu_cmd == 'b1000 || alu_cmd == 'b1001) begin
+    assign how_high = mach_code[2:0];
+    assign branch = equal;
+  end
 
 // lookup table to facilitate jumps/branches
   PC_LUT #(.D(D))
@@ -48,17 +61,12 @@ module top_level(
   Control ctl1(.instr(mach_code[8:5]),
   .equal    (equal)  ,
   .RegDst  (), 
-  .Branch  (relj)  , 
+  .Branch  (branch)  , 
   .MemWrite , 
   .ALUSrc   , 
   .RegWrite   ,     
   .MemtoReg(MemtoReg),
   .ALUOp(alu_cmd));
-
-  assign rd_addrA = mach_code[2:0];
-  assign rd_addrB = {1'b0, mach_code[4:3]}; // zero extend to 3 bits;
-  assign alu_cmd  = mach_code[8:5];
-  assign immed    = {5'b0, mach_code[2:0]}; // zero-extend to 8 bits
 
   wire enable_write = alu_cmd == 'b0011 || alu_cmd == 'b1010 || MemtoReg;
 
@@ -87,8 +95,8 @@ module top_level(
 
   dat_mem dm1(.dat_in(datB)  ,  // from reg_file
              .clk           ,
-			 .wr_en  (MemWrite), // stores
-			 .addr   (datA),
+             .wr_en  (MemWrite), // stores
+             .addr   (datA),
              .dat_out(dat_out));
 
   assign regfile_dat = MemtoReg? dat_out : rslt;
@@ -104,7 +112,7 @@ module top_level(
     sc_in <= 'b0;
   end
     if(sc_clr)
-	  sc_in <= 'b0;
+	    sc_in <= 'b0;
     else if(sc_en)
       sc_in <= sc_o;
   end
