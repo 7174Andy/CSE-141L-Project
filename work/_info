@@ -11,7 +11,7 @@ cModel Technology
 dC:/intelFPGA_lite/20.1
 valu
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1733789434
+Z1 !s110 1734074077
 !i10b 1
 !s100 5aND=bQUZUzNjk^?F9Jli3
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -22,13 +22,13 @@ Z4 dC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project
 w1733789004
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv
-!i122 296
+!i122 365
 L0 2 54
 Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1733789434.000000
+Z6 !s108 1734074077.000000
 !s107 C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv|
 !i113 1
@@ -36,7 +36,7 @@ Z7 o-work work -sv
 Z8 tCvgOpt 0
 valu_tb
 R0
-Z9 !s110 1733789435
+Z9 !s110 1734074078
 !i10b 1
 !s100 2]TH5717h[Xha<j4o^3n91
 R2
@@ -47,13 +47,13 @@ R4
 w1732861088
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv
-!i122 304
+!i122 373
 L0 1 230
 R5
 r1
 !s85 0
 31
-Z10 !s108 1733789435.000000
+Z10 !s108 1734074078.000000
 !s107 C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv|
 !i113 1
@@ -69,10 +69,10 @@ I8`]<n03zIVTfVoP;V9D=j0
 R3
 S1
 R4
-w1733706428
+w1734073590
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/Control.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/Control.sv
-!i122 297
+!i122 366
 L0 2 184
 R5
 r1
@@ -98,7 +98,7 @@ R4
 w1733637573
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/control_tb.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/control_tb.sv
-!i122 305
+!i122 374
 L0 1 248
 R5
 r1
@@ -114,17 +114,17 @@ vdat_mem
 R0
 R1
 !i10b 1
-!s100 Q[1K4A2=NHHQFo=hHMPXD1
+!s100 B;7>T9:`USXYc>JINQRjH2
 R2
-IGLbC;V<N`f3306o5@fgo_0
+I;mT[AYE<<>Zl?9F?[;21^3
 R3
 S1
 R4
-w1733700353
+Z11 w1734073438
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/dat_mem.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/dat_mem.sv
-!i122 298
-L0 2 23
+!i122 367
+L0 2 22
 R5
 r1
 !s85 0
@@ -145,10 +145,10 @@ IP0a1Z_B8gIKR_1O0I05LJ0
 R3
 S1
 R4
-Z11 w1732835805
+R11
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv
-!i122 299
+!i122 368
 L0 4 11
 R5
 r1
@@ -165,17 +165,17 @@ vPC
 R0
 R1
 !i10b 1
-!s100 VR:oAUncj6oE[>I>fYe2n3
+!s100 <7@^Z[4_5aHg:ieIb^;[b0
 R2
-IBmGLomag9I@X[dhf0SkKH2
+I4AX9TTKb6Ig;C;co7kEnY3
 R3
 S1
 R4
 R11
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC.sv
-!i122 300
-L0 4 20
+!i122 369
+L0 4 17
 R5
 r1
 !s85 0
@@ -189,24 +189,24 @@ R8
 n@p@c
 vPC_LUT
 R0
-R9
+R1
 !i10b 1
-!s100 LbnJS[o6Q^_4ljU^55QSP3
+!s100 0F];ai;ZEe62z=_5<iTVE0
 R2
-IDToR?:d7O4iP78G7m`jVm3
+I][m]8[`jb9;ig2ah6JT@]1
 R3
 S1
 R4
-R11
+w1734073688
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv
-!i122 301
-L0 1 12
+!i122 370
+L0 1 25
 R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv|
 !i113 1
@@ -215,24 +215,24 @@ R8
 n@p@c_@l@u@t
 vreg_file
 R0
-R9
+R1
 !i10b 1
-!s100 <g]Dgh3^l0CV8@I1UkC8g3
+!s100 ;ULRWJ9Z3>NzYC_=`9Ab_1
 R2
-I4@7EH<^DRo:4FQ9ff@3A?1
+IOBjEASI2PIcZZ8jn:nUkD1
 R3
 S1
 R4
-w1733786891
+R11
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/reg_file.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/reg_file.sv
-!i122 302
+!i122 371
 L0 3 35
 R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/reg_file.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/reg_file.sv|
 !i113 1
@@ -242,22 +242,22 @@ vtop_level
 R0
 R9
 !i10b 1
-!s100 flB<4z@j;]<lI9<XVlcYN0
+!s100 5QeD@_]O2UQb`77bV:C:Y3
 R2
-IjM9O8Ei<F[AbeUFaF<]??3
+IM;nFn[LMI9923FH3MjTA<3
 R3
 S1
 R4
-w1733789424
+w1734074071
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv
-!i122 303
-L0 2 114
+!i122 372
+L0 2 118
 R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv|
 !i113 1
@@ -276,7 +276,7 @@ R4
 w1733705607
 8C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/top_level_tb.sv
 FC:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/top_level_tb.sv
-!i122 306
+!i122 375
 L0 1 46
 R5
 r1

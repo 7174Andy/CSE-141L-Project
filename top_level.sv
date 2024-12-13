@@ -40,13 +40,10 @@ module top_level(
   assign alu_cmd  = mach_code[8:5];
   assign immed    = {5'b0, mach_code[2:0]}; // zero-extend to 8 bits
 
-  assign how_high = 3'b000;
-  assign branch = 1'b0;
-
-  if (alu_cmd == 'b1000 || alu_cmd == 'b1001) begin
-    assign how_high = mach_code[2:0];
-    assign branch = alu_cmd == 'b1000? equal : !equal;
-  end
+  assign how_high = (alu_cmd == 4'b1000 || alu_cmd == 4'b1001) ? mach_code[2:0] : 3'b000;
+  assign branch = (alu_cmd == 4'b1000) ? equal : 
+                  (alu_cmd == 4'b1001) ? !equal : 
+                  1'b0;
 
 // lookup table to facilitate jumps/branches
   PC_LUT #(.D(D))
