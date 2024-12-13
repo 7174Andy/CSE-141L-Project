@@ -45,7 +45,7 @@ module top_level(
 
   if (alu_cmd == 'b1000 || alu_cmd == 'b1001) begin
     assign how_high = mach_code[2:0];
-    assign branch = equal;
+    assign branch = alu_cmd == 'b1000? equal : !equal;
   end
 
 // lookup table to facilitate jumps/branches
