@@ -9,19 +9,19 @@ module top_level(
   wire        RegWrite;
   wire[7:0]   datA,datB,		  // from RegFile
               muxB, 
-			  rslt,               // alu output
-        dat_out,            // from dat_mem
+			        rslt,               // alu output
+              dat_out,            // from dat_mem
               immed,
               regfile_dat;        // from reg_file
   logic sc_in,   				  // shift/carry out from/to ALU
-   		pariQ,              	  // registered parity flag from ALU
-		zeroQ,                    // registered zero flag from ALU 
-    equal;                      // equality flag from ALU
+   		  pariQ,              	  // registered parity flag from ALU
+		    zeroQ,                    // registered zero flag from ALU 
+        equal;                      // equality flag from ALU
   wire  relj;                     // from control to PC; relative jump enable
   wire  pari,
         zero,
-		sc_clr,
-		sc_en,
+		    sc_clr,
+		    sc_en,
         MemWrite,
         ALUSrc;		              // immediate switch
   wire[A-1:0] alu_cmd;
@@ -29,11 +29,11 @@ module top_level(
   wire[2:0] rd_addrA, rd_addrB, wr_addr;    // address pointers to reg_file
 // fetch subassembly
   PC #(.D(D)) 					  // D sets program counter width
-     pc1 (.reset            ,
+     pc1 (.reset           ,
          .clk              ,
-		 .absjump_en (absj),
-		 .target           ,
-		 .prog_ctr          );
+         .absjump_en (absj),
+         .target           ,
+         .prog_ctr          );
 
 // lookup table to facilitate jumps/branches
   PC_LUT #(.D(D))
