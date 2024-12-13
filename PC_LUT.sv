@@ -6,6 +6,7 @@ module PC_LUT #(parameter D=8)(
     0: target = -5;
 	  1: target = 20;   
 	  2: target = '1;
+    
 	default: target = 'b0; 
   endcase
 
