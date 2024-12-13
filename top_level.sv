@@ -47,7 +47,8 @@ module top_level(
 
 // lookup table to facilitate jumps/branches
   PC_LUT #(.D(D))
-    pl1 (.addr  (how_high),
+    pl1 (.idx  (how_high),
+        .branch(branch),
          .target          );   
 
 // contains machine code
