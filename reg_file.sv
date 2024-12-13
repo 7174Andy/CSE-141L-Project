@@ -35,21 +35,3 @@
 
 
 	endmodule
-	/*
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-		xxxx_xxxx
-	*/

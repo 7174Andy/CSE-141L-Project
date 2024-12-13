@@ -35,15 +35,13 @@ module top_level(
          .target           ,
          .prog_ctr          );
 
-  assign rd_addrA = mach_code[2:0];
-  assign rd_addrB = {1'b0, mach_code[4:3]}; // zero extend to 3 bits;
+  assign rd_addrB = mach_code[2:0];
+  assign rd_addrA = {1'b0, mach_code[4:3]}; // zero extend to 3 bits;
   assign alu_cmd  = mach_code[8:5];
   assign immed    = {5'b0, mach_code[2:0]}; // zero-extend to 8 bits
 
-  assign how_high = (alu_cmd == 4'b1000 || alu_cmd == 4'b1001) ? mach_code[2:0] : 3'b000;
-  assign branch = (alu_cmd == 4'b1000) ? equal : 
-                  (alu_cmd == 4'b1001) ? !equal : 
-                  1'b0;
+  assign how_high = (mach_code[8:5] == 4'b1000 || mach_code[8:5] == 4'b1001) ? mach_code[2:0] : 3'b000;
+
 
 // lookup table to facilitate jumps/branches
   PC_LUT #(.D(D))
@@ -68,7 +66,7 @@ module top_level(
 
   wire enable_write = alu_cmd == 'b0011 || alu_cmd == 'b1010 || MemtoReg;
 
-  assign wr_addr = enable_write? rd_addrA : 'b0000;
+  assign wr_addr = (enable_write && alu_cmd == 'b0011)? rd_addrB : enable_write? rd_addrA : 'b0000;
 
   reg_file #(.pw(3)) rf1(.dat_in(regfile_dat),	   // loads, most ops
               .clk         , 
@@ -89,7 +87,11 @@ module top_level(
 		 .sc_o   (sc_o), // input to sc register
 		 .pari,  
      .equal (equal),
-     .zero  (zero) );  
+     .zero  (zero) );
+
+    assign branch = (mach_code[8:5] == 4'b1000) ? equal : 
+                  (mach_code[8:5] == 4'b1001) ? !equal : 
+                  1'b0;
 
   dat_mem dm1(.dat_in(datB)  ,  // from reg_file
              .clk           ,
@@ -102,8 +104,7 @@ module top_level(
 // registered flags from ALU
   always_ff @(posedge clk) begin
     pariQ <= pari;
-	zeroQ <= zero;
-  equal <= zero;
+    zeroQ <= zero;
   if (reset) begin
     pariQ <= 'b0;
     zeroQ <= 'b0;
