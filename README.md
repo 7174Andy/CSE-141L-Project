@@ -50,8 +50,8 @@ The instruction set uses 9-bit instructions with specific formats for different 
 #### Control Flow Operations
 | **Name** | **Type** | **Description**                              |
 |----------|----------|----------------------------------------------|
-| `beq`    | B        | Branch if equal.                             |
-| `bne`    | B        | Branch if not equal.                         |
+| `beq`    | B        | Branch if equal to the value in R0.             |
+| `bne`    | B        | Branch if not equal to the value in R0.         |
 | `cmp`    | B        | Compares two registers and sets the equal flag. |
 
 #### Immediate Operations
@@ -85,8 +85,7 @@ movi R2, 10       # Load immediate value 10 into R2
 add R1, R2        # Add R1 and R2, store result in R0
 sw R0, [R3]       # Store result from R0 into memory at R3
 loop:
-cmp R1, R2        # Compare R1 and R2
-bne R1, loop      # Branch back to 'loop' if R1 != R2
+bne R1, loop      # Branch back to 'loop' if R1 != R0
 ```
 
 In this example:
