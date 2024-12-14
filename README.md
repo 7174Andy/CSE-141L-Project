@@ -19,7 +19,8 @@ The instruction set uses 9-bit instructions with specific formats for different 
 | I        | 4 bits opcode, 2 bits reg1, 3 bits imm    | `addi`, `movi`                                |
 | L        | 4 bits opcode, 2 bits reg1, 3 bits reg2   | `lw`                                          |
 | S        | 4 bits opcode, 2 bits reg1, 3 bits reg2   | `sw`                                          |
-| B        | 4 bits opcode, 2 bits reg1, 3 bits reg2   | `beq`, `bne`, `cmp`                           |
+| B        | 4 bits opcode, 2 bits reg1, 3 bits reg2   | `cmp`                                         |
+| B        | 4 bits opcode, 5 bits imm                 | `beq`, `bne`, `cmp`                           |
 
 ### Branching Logic
 - Two branch instructions: 
@@ -50,8 +51,8 @@ The instruction set uses 9-bit instructions with specific formats for different 
 #### Control Flow Operations
 | **Name** | **Type** | **Description**                              |
 |----------|----------|----------------------------------------------|
-| `beq`    | B        | Branch if equal to the value in R0.             |
-| `bne`    | B        | Branch if not equal to the value in R0.         |
+| `beq`    | B        | Branch to the given label if equal flag is on.  |
+| `bne`    | B        | Branch to the given label if equal flag is off.  |
 | `cmp`    | B        | Compares two registers and sets the equal flag. |
 
 #### Immediate Operations
