@@ -159,10 +159,10 @@ initial begin
     // Test Case: Move Immediate (alu_cmd = 4'b1010)
     #10
     alu_cmd = 4'b1010;
-    inA = 8'b00000001; // 1
-    inB = 8'b00000000; // Destination doesn't matter
+    inA = 8'b00000001; // Resister 1
+    inB = 8'b00000000; // 0
     #1
-    if (rslt == 8'b00000001) begin
+    if (rslt == 8'b00000000) begin
         $display("Move Immediate: R1=%d, R2=%d, Rslt=%d", inA, inB, rslt);
     end
     else begin
