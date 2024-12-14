@@ -80,8 +80,8 @@ The instruction set uses 9-bit instructions with specific formats for different 
 
 ### Example
 ```assembly
-movi R1, 5        # Load immediate value 5 into R1
-movi R2, 10       # Load immediate value 10 into R2
+movi R1, 1        # Load immediate value 5 into R1
+movi R2, 3       # Load immediate value 10 into R2
 add R1, R2        # Add R1 and R2, store result in R0
 sw R0, [R3]       # Store result from R0 into memory at R3
 loop:
