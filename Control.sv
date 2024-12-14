@@ -98,7 +98,7 @@ case(instr)    // override defaults with exceptions
             end
 
   'b1000:   begin				      // BNE (branch)
-			         Branch = equal ? 0: 'b1;
+			      Branch = equal ? 0: 'b1;
                ALUOp = 'b1000;
                MemWrite = 'b0;
                ALUSrc = 'b0;
@@ -107,7 +107,7 @@ case(instr)    // override defaults with exceptions
             end
 
   'b1001:   begin				      // BEQ (branch)
-			         Branch = equal ? 'b1: 0;
+			      Branch = equal ? 'b1: 0;
                ALUOp = 'b1001;
                MemWrite = 'b0;
                ALUSrc = 'b0;

@@ -1,5 +1,5 @@
 module PC_LUT #(parameter D=8)(
-  input       [ 2:0] idx,    // target 4 values
+  input       [5:0] idx,    // target 32 values
   input       branch,
   output logic[D-1:0] target);
 
