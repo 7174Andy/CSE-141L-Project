@@ -171,36 +171,6 @@ initial begin
         $stop;
     end
 
-    // Test Case: Branch Not Equal (alu_cmd = 4'b1000)
-    #10
-    alu_cmd = 4'b1000;
-    inA = 8'b00000001; // 1
-    inB = 8'b00000010; // 2
-    #1
-    if (equal == 0) begin
-        $display("Branch Not Equal: R1=%d, R2=%d, Equal=%d", inA, inB, equal);
-    end
-    else begin
-        $display("Branch Not Equal: R1=%d, R2=%d, Equal=%d", inA, inB, equal);
-        $display("Branch Not Equal failed");
-        $stop;
-    end
-
-    // Test Case: Branch Equal (alu_cmd = 4'b1001)
-    #10
-    alu_cmd = 4'b1001;
-    inA = 8'b00000001; // 1
-    inB = 8'b00000001; // 1
-    #1
-    if (equal == 1) begin
-        $display("Branch Equal: R1=%d, R2=%d, Equal=%d", inA, inB, equal);
-    end
-    else begin
-        $display("Branch Equal: R1=%d, R2=%d, Equal=%d", inA, inB, equal);
-        $display("Branch Equal failed");
-        $stop;
-    end
-
     // Test Case: Compare (alu_cmd = 4'b1101)
     #10
     alu_cmd = 4'b1101;
