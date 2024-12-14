@@ -28,9 +28,9 @@ module int2flt_tb_noround();
 	.start(req),
     .reset(reset),
     .done (ack0));	         // 
-  int2flt f1(				 // your DUT goes here
+  top_level f1(				 // your DUT goes here
     .clk  (clk),			 // rename module & ports
-    .start(req),			 //  as necessary
+    .req(req),			 	 //  as necessary
 	.reset(reset),			 //  
     .done (ack));          	 // your ack is the one that counts
 
