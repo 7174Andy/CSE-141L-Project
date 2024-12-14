@@ -116,6 +116,6 @@ module top_level(
       sc_in <= sc_o;
   end
 
-  assign done = (prog_ctr == 128) || (mach_code == 9'b111111111);
+  assign done = (prog_ctr == 256) || (mach_code == 9'b111111111);
  
 endmodule
