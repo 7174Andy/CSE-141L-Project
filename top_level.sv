@@ -93,7 +93,7 @@ module top_level(
     //               (mach_code[8:5] == 4'b1001) ? !equal : 
     //               1'b0;
 
-  dat_mem dm1(.dat_in(datA)  ,  // from reg_file
+  dat_mem data_mem1(.dat_in(datA)  ,  // from reg_file
              .clk           ,
              .wr_en  (MemWrite), // stores
              .addr   (datB),
