@@ -1,3 +1,7 @@
+## Authors
+- Andrew Park (A17406465)
+- Minsang Kim (A17406465)
+
 ## Architectural Highlights
 
 ### Machine Type
@@ -19,7 +23,6 @@ The instruction set uses 9-bit instructions with specific formats for different 
 | I        | 4 bits opcode, 2 bits reg1, 3 bits imm    | `addi`, `movi`                                |
 | L        | 4 bits opcode, 2 bits reg1, 3 bits reg2   | `lw`                                          |
 | S        | 4 bits opcode, 2 bits reg1, 3 bits reg2   | `sw`                                          |
-| B        | 4 bits opcode, 2 bits reg1, 3 bits reg2   | `cmp`                                         |
 | B        | 4 bits opcode, 5 bits imm                 | `beq`, `bne`, `cmp`                           |
 
 ### Branching Logic
@@ -35,7 +38,6 @@ The instruction set uses 9-bit instructions with specific formats for different 
 | **Name** | **Type** | **Description**                              |
 |----------|----------|----------------------------------------------|
 | `add`    | R        | Adds two registers and stores the result in `R0`. |
-| `sub`    | R        | Subtracts one register from another and stores in `R0`. |
 | `sll`    | R        | Performs logical left shift.                 |
 | `srl`    | R        | Performs logical right shift.                |
 | `or`     | R        | Performs bitwise OR operation.               |

@@ -39,7 +39,7 @@ module top_level(
   assign rd_addrA = {1'b0, mach_code[4:3]}; // zero extend to 3 bits;
   assign immed    = {5'b0, mach_code[2:0]}; // zero-extend to 8 bits
 
-  assign how_high = (mach_code[8:5] == 4'b1000 || mach_code[8:5] == 4'b1001) ? mach_code[4:0] : 5'b00000;
+  assign how_high = (mach_code[8:5] == 4'b1000 || mach_code[8:5] == 4'b1001) ? mach_code[2:0] : 3'b000;
 
 
 // lookup table to facilitate jumps/branches

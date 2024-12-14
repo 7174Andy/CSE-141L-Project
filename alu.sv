@@ -42,9 +42,9 @@ always_comb begin
   4'b1010: // move immediate
     rslt = inB;
   4'b1000: // bne
-    rslt = inA;
+    equal = inA == inB;
   4'b1001: // beq
-    rslt = inA;
+    equal = inA == inB;
   4'b1101: // cmp
     equal = inA == inB;
   4'b1111: // no operation
