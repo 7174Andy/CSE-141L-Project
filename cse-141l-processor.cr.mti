@@ -1,45 +1,71 @@
-{C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/Control.sv} {0 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/Control.sv}
+{C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/reg_file.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/reg_file.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-66) Execution of vlib.exe failed. Please check the error log for more details.
+-- Compiling module reg_file
 
-} {3.0 4.0} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv} {0 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv}
+Top level modules:
+	reg_file
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-66) Execution of vlib.exe failed. Please check the error log for more details.
+-- Compiling module alu_tb
 
-} {3.0 4.0} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/top_level_tb.sv} {0 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/top_level_tb.sv}
+Top level modules:
+	alu_tb
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/top_level_tb.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/top_level_tb.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-66) Execution of vlib.exe failed. Please check the error log for more details.
+-- Compiling module top_level_tb
 
-} {3.0 4.0} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv} {0 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/alu_tb.sv}
+Top level modules:
+	top_level_tb
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/instr_ROM.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-66) Execution of vlib.exe failed. Please check the error log for more details.
+-- Compiling module instr_ROM
 
-} {3.0 4.0} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/reg_file.sv} {0 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/reg_file.sv}
+Top level modules:
+	instr_ROM
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-66) Execution of vlib.exe failed. Please check the error log for more details.
+-- Compiling module alu
 
-} {3.0 4.0} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv} {0 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv}
+Top level modules:
+	alu
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/top_level.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-66) Execution of vlib.exe failed. Please check the error log for more details.
+-- Compiling module top_level
 
-} {3.0 4.0} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv} {0 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/alu.sv}
+Top level modules:
+	top_level
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/dat_mem.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/dat_mem.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-66) Execution of vlib.exe failed. Please check the error log for more details.
+-- Compiling module dat_mem
 
-} {3.0 4.0} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv} {0 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv}
+Top level modules:
+	dat_mem
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-66) Execution of vlib.exe failed. Please check the error log for more details.
+-- Compiling module PC
 
-} {3.0 4.0} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC.sv} {0 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC.sv}
+Top level modules:
+	PC
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/PC_LUT.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-66) Execution of vlib.exe failed. Please check the error log for more details.
+-- Compiling module PC_LUT
 
-} {3.0 4.0} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/dat_mem.sv} {0 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/dat_mem.sv}
+Top level modules:
+	PC_LUT
+
+} {} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/control_tb.sv} {1 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/control_tb.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-66) Execution of vlib.exe failed. Please check the error log for more details.
+-- Compiling module control_tb
 
-} {3.0 4.0} {}} {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/control_tb.sv} {0 {vlog -work work -sv -stats=none {C:/Users/hee03/OneDrive/Desktop/College/CSE 141L/CSE-141L-Project/test_bench/control_tb.sv}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-66) Execution of vlib.exe failed. Please check the error log for more details.
+Top level modules:
+	control_tb
 
-} {3.0 4.0} {}}
+} {} {}}

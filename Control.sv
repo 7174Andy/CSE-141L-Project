@@ -131,6 +131,7 @@ case(instr)    // override defaults with exceptions
                ALUSrc = 'b1;
                RegWrite = 'b0;
                MemtoReg = 'b0;
+               ALUOp = 'b1011;
             end
 
   'b1100:   begin				      // LW
@@ -140,6 +141,7 @@ case(instr)    // override defaults with exceptions
                ALUSrc = 'b1;
                RegWrite = 'b1;
                MemtoReg = 'b1;
+               ALUOp = 'b1100;
             end
 
   'b1101:   begin				      // CMP
