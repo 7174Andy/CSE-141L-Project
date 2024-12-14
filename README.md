@@ -99,3 +99,27 @@ In this example:
 - Minimize memory operations within arithmetic-heavy sections by preloading data into registers.
 - Avoid frequent branching as it may cause pipeline stalls.
 - Optimize loops with pre-computed indices and avoid runtime memory access during iterations.
+
+## Block Diagram of the Architecture
+TODO : Add block diagram of the architecture and highlight any interesting modifications for the architecture.
+### Top Level
+
+### Program Counter (PC)
+
+### Instruction Memory
+
+### Control Decoder
+
+### Register File
+
+### Arithmetic Logic Unit (ALU)
+
+### Data Memory
+
+### Lookup Table (LUT)
+
+## Test Benches and Simulation
+
+TODO: Add details on test benches and simulation results.
+
+## Performance Evaluation
