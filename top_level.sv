@@ -89,14 +89,14 @@ module top_level(
      .equal (equal),
      .zero  (zero) );
 
-    assign branch = (mach_code[8:5] == 4'b1000) ? equal : 
-                  (mach_code[8:5] == 4'b1001) ? !equal : 
-                  1'b0;
+    // assign branch = (mach_code[8:5] == 4'b1000) ? equal : 
+    //               (mach_code[8:5] == 4'b1001) ? !equal : 
+    //               1'b0;
 
-  dat_mem dm1(.dat_in(datB)  ,  // from reg_file
+  dat_mem dm1(.dat_in(datA)  ,  // from reg_file
              .clk           ,
              .wr_en  (MemWrite), // stores
-             .addr   (datA),
+             .addr   (datB),
              .dat_out(dat_out));
 
   assign regfile_dat = MemtoReg? dat_out : rslt;
