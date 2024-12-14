@@ -26,10 +26,6 @@
 	always_ff @(posedge clk)
 		if(wr_en) begin				   // anything but stores or no ops
 		core[wr_addr] <= dat_in;
-		$display("[%0t] WRITE: core[%0d] <= 0x%0h", $time, wr_addr, dat_in);
-		end
-		else begin
-			$display("[%0t] READ: core[%0d] => 0x%0h", $time, wr_addr, core[wr_addr]);
 		end
 		
 
