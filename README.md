@@ -1,3 +1,7 @@
+## Authors
+- Andrew Park (A17406465)
+- Minsang Kim (A17406465)
+
 ## Architectural Highlights
 
 ### Machine Type
