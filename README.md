@@ -23,7 +23,7 @@ The instruction set uses 9-bit instructions with specific formats for different 
 | I        | 4 bits opcode, 2 bits reg1, 3 bits imm    | `addi`, `movi`                                |
 | L        | 4 bits opcode, 2 bits reg1, 3 bits reg2   | `lw`                                          |
 | S        | 4 bits opcode, 2 bits reg1, 3 bits reg2   | `sw`                                          |
-| B        | 4 bits opcode, 2 bits reg1, 3 bits label                 | `beq`, `bne`, `cmp`                           |
+| B        | 4 bits opcode, 2 bits reg1, 3 bits label  | `beq`, `bne`, `cmp`                           |
 
 ### Branching Logic
 - Two branch instructions: 
@@ -103,7 +103,8 @@ In this example:
 - Optimize loops with pre-computed indices and avoid runtime memory access during iterations.
 
 ## Block Diagram of the Architecture
-TODO : highlight any interesting modifications for the architecture.
+These are the diagrams of components of the architecture and their connections.
+
 ### Top Level
 
 ![top-level](./images/top_level_schematic.png)
@@ -112,7 +113,7 @@ TODO : highlight any interesting modifications for the architecture.
 
 ![pc](./images/pc.png)
 
-The program counter indicates which line of machine code the architecture is reading. 
+The program counter indicates which line of machine code the architecture is reading. The program counter is incremented by 1 after each instruction is executed. However, when there is a branch instruction, the program counter is set to the address of the label.
 
 ### Instruction Memory
 
@@ -123,6 +124,8 @@ This component stores all the instructions in machine code.
 ### Control Decoder
 
 ![control-decoder](./images/control-decoder.png)
+
+This component decodes the opcode and generates necessary signals for each operation. When the opcode is `beq`, `bne`, or `cmp`, it generates a signal to set the equal flag.
 
 ### Register File
 
@@ -139,6 +142,8 @@ We have different cases for each opcodes needed to generate necessary signals fo
 ### Data Memory
 
 ![data_mem](./images/data_mem.png)
+
+The data memory stores the data that is being read or written by the architecture.
 
 ### Lookup Table (LUT)
 

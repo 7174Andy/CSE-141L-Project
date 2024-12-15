@@ -1,0 +1,44 @@
+movi R1, 1
+movi R2, 0
+lw   R1, [R1]
+lw   R2, [R2]
+slr  R1, 7
+mov  R0, R3
+movi R0, 1
+bne  R3, positive
+movi R2, 7
+sll  R2, 4
+movi R3, 7
+or   R2, R3
+sll  R0, 1
+addi R1, 1
+xor  R3, R1
+mov  R0, R1
+xor  R2, R3
+mov  R0, R2
+addi R2, 1
+beq  R2, normalize
+addi R1, 1
+movi R0, 0 //positive
+slr  R1, 1 //normalize
+slr  R2, 1
+or   R1, R2
+bne  R1, shift_loop
+addi R0, 1
+bne  R0, normalize
+addi R0, 7 //shift_loop
+addi R3, 7
+addi R3, 1
+and  R2, R1
+mov  R0, R1
+and  R2, R3
+mov  R0, R2
+sll  R0, 7
+sll  R0, 3
+or   R0, R3
+or   R1, R0
+movi R3, 3
+movi R2, 2
+sw   R1, [R3]
+sw   R2, [R2]
+halt
