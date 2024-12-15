@@ -112,9 +112,13 @@ TODO : highlight any interesting modifications for the architecture.
 
 ![pc](./images/pc.png)
 
+The program counter indicates which line of machine code the architecture is reading. 
+
 ### Instruction Memory
 
 ![rom](./images/rom.png)
+
+This component stores all the instructions in machine code. 
 
 ### Control Decoder
 
@@ -124,9 +128,13 @@ TODO : highlight any interesting modifications for the architecture.
 
 ![reg-file](./images/reg_file.png)
 
+This stores the values of the registers from `r0` to `r7`. 
+
 ### Arithmetic Logic Unit (ALU)
 
 ![alu](./images/alu.png)
+
+We have different cases for each opcodes needed to generate necessary signals for each operations. Furthermore, this component returns an equal flag if the given register is equal to `R0` if the instruction is `cmp`, `beq` or `bne`. 
 
 ### Data Memory
 
@@ -135,6 +143,8 @@ TODO : highlight any interesting modifications for the architecture.
 ### Lookup Table (LUT)
 
 ![lut](./images/pc-lut.png)
+
+This stores all the labels in binary numbers. 
 
 ## Test Benches and Simulation
 
