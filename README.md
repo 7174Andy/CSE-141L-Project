@@ -153,6 +153,6 @@ This stores all the labels in binary numbers.
 
 ## Test Benches and Simulation
 
-TODO: Add details on test benches and simulation results.
-
-## Performance Evaluation
+- `alu_tb.sv` is the test bench for the ALU module. It tests all the operations that the ALU can perform. When test bench is run, it will print out the results of the operations.
+- `control_tb.sv` is the test bench for the Control Decoder module. It tests all the opcodes that the Control Decoder can decode. When test bench is run, it will print out the results of the operations.
+- `int2flt_tb_noround.sv` is the test bench for the Integer to Floating Point module. It tests the conversion of integer to floating point without rounding. When test bench is run, it will print out the results of the conversion.
