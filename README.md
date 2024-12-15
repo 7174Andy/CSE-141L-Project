@@ -103,22 +103,38 @@ In this example:
 - Optimize loops with pre-computed indices and avoid runtime memory access during iterations.
 
 ## Block Diagram of the Architecture
-TODO : Add block diagram of the architecture and highlight any interesting modifications for the architecture.
+TODO : highlight any interesting modifications for the architecture.
 ### Top Level
+
+![top-level](./images/top_level_schematic.png)
 
 ### Program Counter (PC)
 
+![pc](./images/pc.png)
+
 ### Instruction Memory
+
+![rom](./images/rom.png)
 
 ### Control Decoder
 
+![control-decoder](./images/control-decoder.png)
+
 ### Register File
+
+![reg-file](./images/reg_file.png)
 
 ### Arithmetic Logic Unit (ALU)
 
+![alu](./images/alu.png)
+
 ### Data Memory
 
+![data_mem](./images/data_mem.png)
+
 ### Lookup Table (LUT)
+
+![lut](./images/pc-lut.png)
 
 ## Test Benches and Simulation
 

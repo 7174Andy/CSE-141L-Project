@@ -1,2 +1,9 @@
 transcript
-work/*
+work/
+db/
+incremental_db/
+*.log
+output_files/
+cse-141l-processor_description.txt
+*.qpf
+*.qsf
