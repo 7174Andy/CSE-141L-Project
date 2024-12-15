@@ -154,6 +154,59 @@ This stores all the labels in binary numbers.
 ## Test Benches and Simulation
 
 - `alu_tb.sv` is the test bench for the ALU module. It tests all the operations that the ALU can perform. When test bench is run, it will print out the results of the operations.
+
+**Result**: 
+```
+# Add: R1=  1, R2=  2, Rslt=  3
+# Shift Left: R1=  2, R2=  1, Rslt=  4
+# Shift Right: R1=  4, R2=  1, Rslt=  2
+# Move A to B: R1= 12, R2=  0, Rslt= 12
+# Bitwise OR: R1= 12, R2=  2, Rslt= 14
+# Bitwise XOR: R1= 12, R2=  2, Rslt= 14
+# Bitwise AND: R1= 12, R2=  2, Rslt=  0
+# Add Immediate: R1=  1, R2=  2, Rslt=  3
+# Move Immediate: R1=  1, R2=  0, Rslt=  0
+# Compare: R1=  1, R2=  1, Equal=1
+# No Operation: R1=  1, R2=  0, Rslt=  1
+```
+
 - `control_tb.sv` is the test bench for the Control Decoder module. It tests all the opcodes that the Control Decoder can decode. When test bench is run, it will print out the results of the operations.
+
+**Result**: 
+```
+# ADD: RegDst=1, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=0, RegWrite=1, ALUOp=0000
+# ADD passed
+# SLL: RegDst=1, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=1, RegWrite=1, ALUOp=0001
+# SLL passed
+# SLR: RegDst=1, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=1, RegWrite=1, ALUOp=0010
+# SLR passed
+# MOV: RegDst=1, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=0, RegWrite=1, ALUOp=0011
+# MOV passed
+# OR: RegDst=1, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=0, RegWrite=1, ALUOp=0100
+# OR passed
+# XOR: RegDst=1, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=0, RegWrite=1, ALUOp=0101
+# XOR passed
+# ADD: RegDst=1, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=0, RegWrite=1, ALUOp=0110
+# ADD passed
+# ADDi: RegDst=0, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=1, RegWrite=1, ALUOp=0111
+# ADDi passed
+# BNE: RegDst=0, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=0, RegWrite=0, ALUOp=1000
+# BNE passed
+# BNE: RegDst=0, Branch=1, MemtoReg=0, MemWrite=0, ALUsrc=0, RegWrite=0, ALUOp=1000
+# BNE passed
+# BEQ: RegDst=0, Branch=1, MemtoReg=0, MemWrite=0, ALUsrc=0, RegWrite=0, ALUOp=1001
+# BEQ passed
+# BEQ: RegDst=0, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=0, RegWrite=0, ALUOp=1001
+# BEQ passed
+# MOVi: RegDst=0, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=1, RegWrite=1, ALUOp=1010
+# MOVi passed
+# SW: RegDst=0, Branch=0, MemtoReg=0, MemWrite=1, ALUsrc=1, RegWrite=0, ALUOp=1011
+# SW passed
+# LW: RegDst=0, Branch=0, MemtoReg=1, MemWrite=0, ALUsrc=1, RegWrite=1, ALUOp=1100
+# LW passed
+# NOP: RegDst=0, Branch=0, MemtoReg=0, MemWrite=0, ALUsrc=0, RegWrite=0, ALUOp=1111
+# NOP passed
+```
+
 - `int2flt_tb_noround.sv` is the test bench for the Integer to Floating Point module. It tests the conversion of integer to floating point without rounding. When test bench is run, it will print out the results of the conversion.
 - `top_level_tb.sv` is the test bench for the top level module. It tests the overall functionality of the architecture. When test bench is run, it will print out the results of the operations. This test bench reads the instructions from `machine_code.txt`. 
