@@ -209,4 +209,9 @@ This stores all the labels in binary numbers.
 ```
 
 - `int2flt_tb_noround.sv` is the test bench for the Integer to Floating Point module. It tests the conversion of integer to floating point without rounding. When test bench is run, it will print out the results of the conversion.
+
 - `top_level_tb.sv` is the test bench for the top level module. It tests the overall functionality of the architecture. When test bench is run, it will print out the results of the operations. This test bench reads the instructions from `machine_code.txt`. 
+
+**Result of the Program 1**
+
+![waveform_program1](./images/waveform_program1.png)
