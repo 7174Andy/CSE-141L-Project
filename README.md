@@ -23,7 +23,7 @@ The instruction set uses 9-bit instructions with specific formats for different 
 | I        | 4 bits opcode, 2 bits reg1, 3 bits imm    | `addi`, `movi`                                |
 | L        | 4 bits opcode, 2 bits reg1, 3 bits reg2   | `lw`                                          |
 | S        | 4 bits opcode, 2 bits reg1, 3 bits reg2   | `sw`                                          |
-| B        | 4 bits opcode, 5 bits imm                 | `beq`, `bne`, `cmp`                           |
+| B        | 4 bits opcode, 2 bits reg1, 3 bits label                 | `beq`, `bne`, `cmp`                           |
 
 ### Branching Logic
 - Two branch instructions: 
